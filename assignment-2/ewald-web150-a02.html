@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<body>
+Welcome to the* Javascript Jukebox! (*Extremely Limited)
+<script>
+var pop = confirm('Welcome to the Javascript Jukebox! Do you like pop/psyche music more than heavy metal?');
+if (pop) {
+	var psyche = prompt('On a scale of 1 to 10, how psychedelic do you like your pop music? (1 - Mildly psychedelic; 10 - An out of body experience)');
+	psyche = Number(psyche);
+	if (psyche <= 2) {
+		console.log('The Blues Magoos - "The People Had No Faces" http://www.youtube.com/watch?v=0PMnJug-q8c');
+	} else if (psyche <= 4) {
+		console.log('The Rising Storm - "Bright Lit Blue Skies" http://www.youtube.com/watch?v=War5EIlQ_i8');
+	} else if (psyche <= 6) {
+		console.log('The Beatles - "Float Upstream" http://www.youtube.com/watch?v=1yEprCB-8RY');
+	} else if (psyche <= 8) {
+		console.log('Cream - "Dance the Night Away" http://www.youtube.com/watch?v=lteb--nvuyo');
+	} else {
+		console.log('The Monkees - "Porpoise Song" http://www.youtube.com/watch?v=mdd5xI9l7Ns');
+	}
+} else {
+	var spandex = prompt('On a scale of 1 to 10, how heavy do you like your metal? (1 - Spandex and long hair; 10 - Satanic rituals & the Occult)');
+	spandex = Number(spandex);
+	if (spandex <= 2) {
+		console.log('Iron Maiden - "The Number of the Beast" http://www.youtube.com/watch?v=jsmcDLDw9iw');
+	} else if (spandex <= 4) {
+		console.log('Ozzy Osbourne - "Over the Mountain" http://www.youtube.com/watch?v=R4veHQiZyHs');
+	} else if (spandex <= 6) {
+		console.log('Immortal - "Call of the Wintermoon" http://www.youtube.com/watch?v=-VBdAY8eA9w');
+	} else if (spandex <= 8) {
+		console.log('Venom - "Welcome to Hell" http://www.youtube.com/watch?v=_Sb46VD5CmA');
+	} else {
+		console.log('Bathory - "Die in Fire" http://www.youtube.com/watch?v=Mmb2PtaK30A');
+	}
+	//Note: I realize that the variable 'spandex' ought to be inversely proportional to the way it is now, but I just wanted something besides "metal" or "heaviness" and thought it would be funnier.
+}
+</script>
+</body>
+</html>
