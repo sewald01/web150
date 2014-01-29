@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>Military Expenditures vs. GDP</title>
+	<meta charset=utf8>
+</head>
+<body>
+
+<script src="expenditures.js"></script>
+
+<script>
+var highest = 0;
+var lowest = 999999;
+var ratioTotal = 0;
+var countriesTotal = 0;
+for (var i = 0; i < expenditures.length; i++) {
+	var data = expenditures[i];
+	var ratio = data.amount;
+	if (ratio > highest) {
+		highest = ratio;
+		var highestCountry = data.country;
+	}
+	if (ratio < lowest) {
+		lowest = ratio;
+		var lowestCountry = data.country;
+	}
+	ratio = Number(ratio);
+	ratioTotal += ratio;
+	countriesTotal++;
+}
+console.log("The country with the highest ratio of military expenditures to GDP is " + highestCountry);
+console.log("The country with the lowest ratio of military expenditures to GDP is " + lowestCountry);
+console.log("The average ratio of military expenditures to GDP is " + ratioTotal / countriesTotal);
+</script>
+</body>
+</html>
