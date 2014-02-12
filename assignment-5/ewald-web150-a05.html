@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript/jQuery Gallery</title>
+	<meta charset="utf8">
+	<style>
+	.thumbnails {padding: 10; margin: 10;}
+	.thumbnails li {
+		display: inline-block;
+		padding: 4px 12px;
+	}
+	.thumbnails li.active {
+		border: 1px solid blue;
+	}
+	.image {}
+	</style>
+</head>
+<body>
+	<ul class="thumbnails">
+		<li><a href="#image1"><img src="images/image1t.jpg"></a>
+		<li><a href="#image2"><img src="images/image2t.jpg"></a>
+		<li><a href="#image3"><img src="images/image3t.jpg"></a>
+	</ul>
+	
+	<div class="image" id="image1">
+		<img src="images/image1.jpg">
+	</div>
+	
+	<div class="image" id="image2">
+		<img src="images/image2.jpg">
+	</div>
+	
+	<div class="image" id="image3">
+		<img src="images/image3.jpg">
+	</div>
+	
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js">
+	</script>
+	
+	<script>
+	var thumbnailLinks = $(".thumbnails a");
+	thumbnailLinks.on("click", function(e) {
+		$(".image:visible").hide();
+		var $this = $(this);
+		var href = $this.attr("href");
+		var image = $(href);
+		image.fadeIn();
+		e.preventDefault();
+		$(".active").removeClass("active");
+		var li = $this.closest("li");
+		li.addClass("active");
+	});
+	$(".image").not(":first").hide();
+	</script>
+</body>
+</html>
