@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>AJAX Magic 8 Ball</title>
+		<meta charset="utf8">
+	</head>
+<body>
+
+	Welcome to the AJAX Magic 8 Ball. Ask a question, then shake it!
+	<br>
+	<button id="shake">Shake it!</button>
+	<div class="response"></div>
+  
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+
+var response = $(".response");
+var getResponse = function(tag) {
+	var jsonp = $.ajax("http://thomaswilburn.net:8080/magic8", {
+		dataType: "jsonp",
+		jsonpCallback: "answer"
+	});
+	jsonp.done(function(data) {
+		response.html(data.answer);
+	});
+};
+
+var shake = $("#shake");
+shake.on("click", function() {
+	shake.effect("shake");
+	response.html(getResponse);
+});
+
+</script>
+</html>
+
+
+
+
