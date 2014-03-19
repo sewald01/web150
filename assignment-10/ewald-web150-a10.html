@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Welcome to JobCreator: a Better Job Listings Interface</title>
+    <meta name="robots" content="noindex,nofollow" />
+	<link rel="stylesheet" type="text/css" href="css/a10.css" />
+</head>
+<body>
+	<header>
+		<h1>JobCreator</h1>
+		<h2>A Better Job Listings Interface</h2>
+	</header>
+	<aside>
+		<ul class="sidebar">
+			<li><a href="#search">Search Listings</a>
+			<li><a href="#create">Create Listing</a>
+		</ul>
+	</aside>
+	<section>
+		<div class="listings" id="search">
+			<h3>Search for job listings:</h3>
+			<p>
+			<label>Search for: 
+				<input type="text" placeholder="Search for Keywords" />
+			</label>
+			<br>
+			<label>Within: 
+				<select>
+				<option selected="selected" disabled="disabled">0 Miles</option>
+					<option>1 Mile</option>
+					<option>2 Miles</option>
+					<option>5 Miles</option>
+					<option>25 Miles</option>
+					<option>Anywhere</option>
+				</select>
+				of
+				<input type="text" placeholder="Zipcode" />
+			</label>
+			<p>
+			<input type="submit" value="Search" />
+		</div>
+		
+		<div class="listings" id="create">
+			<h3>Create job listing:</h3>
+			<p>
+			<label>Name: 
+				<input type="text" placeholder="Company name"/>
+			</label>
+			<br>
+			<label>Position: 
+				<input type="text" placeholder="Title of position"/>
+			</label>
+			<br>
+			<label>Location:
+				<input type="text" placeholder="City" />
+				<input type="text" placeholder="State" />
+				<input type="text" placeholder="Zipcode" />
+			</label>
+			<p>
+			<label class="description">Description:</br>
+				<textarea name="comments" placeholder="Description of position."></textarea>
+			</label>
+			<p>
+			<input type="submit" value="Send" />
+		</div>
+	<section>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+	var listingsOptions = $(".sidebar a");
+	listingsOptions.on("click", function(e) {
+		$(".listings:visible").hide();
+		var $this = $(this);
+		var href = $this.attr("href");
+		var listings = $(href);
+		listings.show();
+		e.preventDefault();
+		$(".active").removeClass("active");
+		var li = $this.closest("li");
+		li.addClass("active");
+	});
+	$(".listings").not(":first").hide();
+</script>
+</body>
+</html>
